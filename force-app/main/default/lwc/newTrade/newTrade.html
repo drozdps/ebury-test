@@ -1,0 +1,74 @@
+<template>
+    <lightning-record-edit-form object-api-name="Trade__c">
+    <lightning-layout multiple-rows>
+        <lightning-layout-item size="4" padding="around-none">
+            <div class="custom-box slds-p-around_medium slds-text-align_center">Sell Currency</div>
+        </lightning-layout-item>
+        <lightning-layout-item size="4" padding="around-none">
+            <div class="custom-box slds-p-around_medium slds-text-align_center">Rate</div>
+        </lightning-layout-item>
+        <lightning-layout-item size="4"  padding="around-none">
+            <div class="custom-box slds-p-around_medium slds-text-align_center">Buy Currency</div>
+        </lightning-layout-item>
+        <lightning-layout-item size="4" padding="around-none">
+            <div class="custom-box slds-p-left_medium slds-p-right_medium slds-text-align_center">
+                <lightning-input-field field-name="SellCurrency__c"  data-id="sellCurrency" variant="label-hidden" onchange={handleChange}></lightning-input-field>
+            </div>
+        </lightning-layout-item>    
+        <lightning-layout-item size="4" padding="around-none">
+            <div class="custom-box slds-p-left_medium slds-p-right_medium slds-text-align_center">
+            <lightning-layout>
+                <lightning-layout-item size="1" padding="around-none">
+                    <div class="arrow-right"></div>
+                </lightning-layout-item>
+                <lightning-layout-item size="10" padding="around-none">1.2561</lightning-layout-item>
+                <lightning-layout-item size="1" padding="around-none">
+                    <div class="arrow-right"></div>
+                </lightning-layout-item>
+            </lightning-layout>
+            </div>
+        </lightning-layout-item>
+        <lightning-layout-item size="4" padding="around-none">
+            <div class="custom-box slds-p-left_medium slds-p-right_medium slds-text-align_center">
+                <lightning-input-field field-name="BuyCurrency__c" data-id="buyCurrency" variant="label-hidden" onchange={handleChange}></lightning-input-field>
+            </div>
+        </lightning-layout-item>   
+        <lightning-layout-item size="4" padding="around-none">
+            <div class="custom-box slds-p-left_medium slds-p-right_medium slds-p-top_large  slds-text-align_center">Sell Amount</div>
+        </lightning-layout-item>
+        <lightning-layout-item size="4" padding="around-none">
+        </lightning-layout-item>
+        <lightning-layout-item size="4" padding="around-none">
+            <div class="custom-box slds-p-left_medium slds-p-right_medium slds-p-top_large slds-text-align_center">Buy Amount</div>
+        </lightning-layout-item>
+        <lightning-layout-item size="4" padding="around-none">
+            <div class="custom-box slds-p-around_medium slds-text-align_center">
+                <lightning-input-field  field-name="SellAmount__c" data-id="sellAmount" variant="label-hidden" onchange={handleChange}></lightning-input-field>
+            </div>
+        </lightning-layout-item>
+        <lightning-layout-item size="4" padding="around-none">
+        </lightning-layout-item>
+        <lightning-layout-item size="4" padding="around-none">
+            <div class="custom-box slds-p-around_medium slds-text-align_center">
+                <lightning-input-field disabled field-name="BuyAmount__c" variant="label-hidden"></lightning-input-field>
+            </div>
+        </lightning-layout-item>  
+        <lightning-layout-item size="4" padding="around-none">
+            <div class="custom-box slds-p-around_medium slds-text-align_center">
+            <lightning-button variant="neutral" label="Create" title="Create" 
+                              onclick={handleCreate} class="slds-float_left">
+            </lightning-button> 
+            </div>
+        </lightning-layout-item> 
+        <lightning-layout-item size="4" padding="around-none">
+        </lightning-layout-item>
+        <lightning-layout-item size="4" padding="around-none">
+            <div class="custom-box slds-p-around_medium slds-text-align_center">
+                <lightning-button variant="neutral" label="Cancel" title="Cancel" 
+                                onclick={handleCancel} class="slds-float_right">
+                </lightning-button>
+            </div>
+        </lightning-layout-item>  
+    </lightning-layout>
+    </lightning-record-edit-form>
+</template>
