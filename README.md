@@ -51,8 +51,9 @@ SFDX deployment guide
 1. Authorize your DevHub: `sfdx force:auth:web:login --setdefaultdevhubusername --setalias paulEburyDevHub`
 2. Create new scratch org: `sfdx force:org:create -f config/project-scratch-def.json`
 3. Push the source code: `sfdx force:source:deploy -p force-app`
-4. Create "Trade reviewers" queue on the org.
-5. Create new Fixer.io record in "External Services" custom metadata type. It should include your API access token.
+4. Assign Ebury permission set to your user: `sfdx force:user:permset:assign --permsetname Ebury --targetusername YOUR_USERNAME`
+5. Assign appropriate Users to "Trade reviewers" queue.
+6. Create new Fixer.io record in "External Services" custom metadata type. It should include your API access token.
 
 **Error handling**
 

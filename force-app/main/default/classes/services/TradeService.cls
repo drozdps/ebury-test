@@ -45,11 +45,11 @@ public with sharing class TradeService {
         } catch (QueryException exc) {
             trades[0].addError('Please check your org configuration. We cannot find "' + TRADE_REVIEWER_QUEUE + '" queue.');
         }
-        ChatterService chatter = new ChatterService();
-        for (Trade__c trade: this.trades) {
-            chatter.addPost(usersToNotify, this.getPostMessage(trade), trade.Id); 
-        }
         try {
+            ChatterService chatter = new ChatterService();
+            for (Trade__c trade: this.trades) {
+                chatter.addPost(usersToNotify, this.getPostMessage(trade), trade.Id); 
+            }
             chatter.send();
         } catch(CustomException exc) {
             trades[0].addError('Cannot create Chatter post: ' + exc.getMessage());

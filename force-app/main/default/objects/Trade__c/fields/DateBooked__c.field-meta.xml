@@ -4,6 +4,7 @@
     <externalId>false</externalId>
     <label>Date Booked</label>
     <required>true</required>
+    <trackFeedHistory>true</trackFeedHistory>
     <trackTrending>false</trackTrending>
     <type>DateTime</type>
 </CustomField>

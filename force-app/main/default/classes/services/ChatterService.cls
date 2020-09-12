@@ -14,6 +14,9 @@ public with sharing class ChatterService {
     }
 
     public void addPost(Set<Id> recipients, String message, Id subjectId) {
+        if (recipients == null) {
+            throw new CustomException('Wrong recipients.');
+        }
         ConnectApi.FeedItemInput feedItemInput = new ConnectApi.FeedItemInput();
         ConnectApi.MessageBodyInput messageBodyInput = new ConnectApi.MessageBodyInput();
         messageBodyInput.messageSegments = new List<ConnectApi.MessageSegmentInput>();
