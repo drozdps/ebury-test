@@ -8,7 +8,7 @@
 public with sharing class ExternalService {
     
     // Static collection for in-memory caching
-    private static Map<String, ExternalService.Definition> services;
+    @testVisible private static Map<String, ExternalService.Definition> services;
 
     public static ExternalService.Definition getDefinition(String serviceName) {
         if (services == null) {
@@ -21,6 +21,7 @@ public with sharing class ExternalService {
         return def;
     }
 
+    @testVisible
     private static void fetchData() {
         services = new Map<String, ExternalService.Definition>();
         for (ExternalService__mdt service: [SELECT URL__c, Token__c, MasterLabel

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <brand>
+        <headerColor>#DE6BED</headerColor>
+        <logo>Ebury</logo>
+        <logoVersion>1</logoVersion>
+        <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
+    </brand>
+    <description>Technical Test for Ebury.</description>
+    <formFactors>Small</formFactors>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>true</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>true</isNavPersonalizationDisabled>
+    <label>Ebury Test</label>
+    <navType>Standard</navType>
+    <tabs>Trades</tabs>
+    <tabs>standard-Feed</tabs>
+    <tabs>standard-DeleteEvent</tabs>
+    <uiType>Lightning</uiType>
+    <utilityBar>Ebury_Test_UtilityBar</utilityBar>
+</CustomApplication>

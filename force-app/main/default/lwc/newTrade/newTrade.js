@@ -8,6 +8,7 @@ export default class NewTrade extends LightningElement {
     buyAmount;
     rate;
     dateBooked;
+    showSpinner = false;
 
     handleChange() {
         let sellAmount = this.template.querySelector('[data-id="sellAmount"]').value;
@@ -37,6 +38,7 @@ export default class NewTrade extends LightningElement {
 
     handleCreate(event) {
         event.preventDefault();
+        this.showSpinner = true;
         const fields = event.detail.fields;
         fields.Rate__c = this.rate;
         fields.ID__c = 'TR' + [...Array(7)].map(i=>(~~(Math.random()*36)).toString(36)).join('').toUpperCase();
@@ -52,11 +54,13 @@ export default class NewTrade extends LightningElement {
     }
 
     handleSuccess() {
+        this.showSpinner = false;
         this.handleCancel();
         this.showNotification('Success', 'Your record was created', 'success');
     }
 
     handleError(event) {
+        this.showSpinner = false;
         this.showNotification('Error!', 'Something went wrong. Contact your system administrator. \n' + event.detail.detail, 'error');
     }
 

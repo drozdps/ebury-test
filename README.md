@@ -11,6 +11,10 @@
 - ID__c is unique auto-generated field. The application uses both LWC and Apex Trigger to verify it is populated on each new record.
 - Sell Currency and Buy Currency are both picklist fields which reference Global Value Set "Currency"
 - The application includes SFDX-formatted Trade__c and Trade Layout metadata.
+- Spinner is displayed after user clicks "Create" button
+![picture](screenshots/spinner.png)
+- Toast success or error messages are displayed as well.
+![picture](screenshots/toast.png)
 
 **REQ2**
 
@@ -48,3 +52,13 @@ SFDX deployment guide
 2. Create new scratch org: `sfdx force:org:create -f project-scratch-def.json`
 3. Push the source code: `sfdx force:source:deploy -p force-app`
 4. Create "Trade reviewers" queue on the org.
+
+**Error handling**
+
+- Possible errors are handled both in LWC and in Apex code.
+ ![picture](screenshots/error_example.png)
+
+**Code coverage**
+
+- All apex classes are covered with negative and positive unit tests.
+ ![picture](screenshots/code_coverage.png)
