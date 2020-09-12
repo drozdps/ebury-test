@@ -1,18 +1,23 @@
 <template>
-    <lightning-button variant="brand" label="New Trade" title="New Trade" 
-                      onclick={handleOpenModal} class="slds-m-left_x-small">
-    </lightning-button>
-    <template if:true={tradesList}>
-        <lightning-datatable data={tradesList} columns={columns} key-field="Id"
-                             sorted-direction={sortDirection} sorted-by={sortedBy}
-                             hide-checkbox-column default-sort-direction={defaultSortDirection}>
-        </lightning-datatable>
-    </template>
-    <template if:true={error}>
-        {error}
-    </template>
-    <c-generic-modal size-class="slds-modal_medium" hide-footer="true" hide-header="true">
-        <span slot="title">New Trade</span>
-        <c-new-trade oncancel={handleCancelClick}></c-new-trade>
-    </c-generic-modal>
+    <lightning-layout multiple-rows>
+        <lightning-layout-item size="12" padding="around-none">
+            <lightning-button variant="neutral" label="New Trade" title="New Trade" 
+                            onclick={handleOpenModal} class="slds-p-bottom_medium slds-float_right">
+            </lightning-button>
+        </lightning-layout-item>
+        <lightning-layout-item size="12" padding="around-none">
+            <template if:true={tradesList}>
+                <lightning-datatable data={tradesList} columns={columns} key-field="Id"
+                                    hide-checkbox-column>
+                </lightning-datatable>
+            </template>
+            <template if:true={error}>
+                {error}
+            </template>
+            <c-generic-modal size-class="slds-modal_medium" hide-footer="true" hide-header="true">
+                <span slot="title">New Trade</span>
+                <c-new-trade oncancel={handleCancelClick}></c-new-trade>
+            </c-generic-modal>
+        </lightning-layout-item>
+    </lightning-layout>
 </template>

@@ -1,5 +1,5 @@
 <template>
-    <lightning-record-edit-form object-api-name="Trade__c">
+    <lightning-record-edit-form object-api-name="Trade__c" onerror={handleError} onsubmit={handleCreate} onsuccess={handleSuccess}>
     <lightning-layout multiple-rows>
         <lightning-layout-item size="4" padding="around-none">
             <div class="custom-box slds-p-around_medium slds-text-align_center">Sell Currency</div>
@@ -21,7 +21,7 @@
                 <lightning-layout-item size="1" padding="around-none">
                     <div class="arrow-right"></div>
                 </lightning-layout-item>
-                <lightning-layout-item size="10" padding="around-none">1.2561</lightning-layout-item>
+                <lightning-layout-item size="10" padding="around-none">{rate}</lightning-layout-item>
                 <lightning-layout-item size="1" padding="around-none">
                     <div class="arrow-right"></div>
                 </lightning-layout-item>
@@ -43,19 +43,19 @@
         </lightning-layout-item>
         <lightning-layout-item size="4" padding="around-none">
             <div class="custom-box slds-p-around_medium slds-text-align_center">
-                <lightning-input-field  field-name="SellAmount__c" data-id="sellAmount" variant="label-hidden" onchange={handleChange}></lightning-input-field>
+                <lightning-input type="number" value={sellAmount} variant="label-hidden" data-id="sellAmount" onchange={handleChange}></lightning-input>
             </div>
         </lightning-layout-item>
         <lightning-layout-item size="4" padding="around-none">
         </lightning-layout-item>
         <lightning-layout-item size="4" padding="around-none">
             <div class="custom-box slds-p-around_medium slds-text-align_center">
-                <lightning-input-field disabled field-name="BuyAmount__c" variant="label-hidden"></lightning-input-field>
+                <lightning-formatted-number value={buyAmount} maximum-fraction-digits="2"></lightning-formatted-number>
             </div>
         </lightning-layout-item>  
         <lightning-layout-item size="4" padding="around-none">
             <div class="custom-box slds-p-around_medium slds-text-align_center">
-            <lightning-button variant="neutral" label="Create" title="Create" 
+            <lightning-button variant="neutral" label="Create" title="Create" type="submit"
                               onclick={handleCreate} class="slds-float_left">
             </lightning-button> 
             </div>

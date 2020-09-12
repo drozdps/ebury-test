@@ -1,5 +1,7 @@
 import { LightningElement ,api, wire, track} from 'lwc';
 import getList from '@salesforce/apex/TradesController.getList';
+import { refreshApex } from '@salesforce/apex';
+
 export default class LightningDatatableLWCExample extends LightningElement {
 
     columns = [{
@@ -36,27 +38,35 @@ export default class LightningDatatableLWCExample extends LightningElement {
             label: 'Date Booked',
             fieldName: 'DateBooked__c',
             type: 'date',
-            sortable: false
+            sortable: false,
+            typeAttributes: {
+                day: 'numeric',
+                month: 'numeric',
+                year: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+              },
         }
     ];
  
     error;
     tradesList;
-    defaultSortDirection = 'desc';
-    sortDirection = 'asc';
-    sortedBy = 'DateBooked__c';
+    wiredResult;
 
     @wire(getList) 
-    wiredTrades({error, data}) {
-        if (data) {
-            this.tradesList = data;
-        } else if (error) {
-            this.error = error;
+    wiredTrades(result) {
+        this.wiredResult = result;
+        if (result.data) {
+            this.tradesList = result.data;
+        } else if (result.error) {
+            this.error = result.error;
+            this.tradesList = [];
         }
     }
 
     handleCancelClick() {
         this.template.querySelector('c-generic-modal').hide();
+        refreshApex(this.wiredResult);
     }
 
     handleOpenModal() {

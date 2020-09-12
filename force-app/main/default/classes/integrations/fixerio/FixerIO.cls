@@ -52,9 +52,9 @@ public with sharing class FixerIO {
     }
 
     public class ConvertResponse {
-        private Boolean success;
-        private Decimal result;
-        private ConvertInfo info;
+        @AuraEnabled public Boolean success;
+        @AuraEnabled public Decimal result;
+        @AuraEnabled public ConvertInfo info;
 
         public Decimal getResult() {
             return this.result;
@@ -65,7 +65,8 @@ public with sharing class FixerIO {
         }
     }
 
-    private class ConvertInfo {
-        private Decimal rate;
+    public class ConvertInfo {
+        @AuraEnabled public Integer timestamp;
+        @AuraEnabled public Decimal rate;
     }
 }
