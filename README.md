@@ -1,6 +1,6 @@
 # Ebury technical test
 
-> The application constist of two main views. The list view lists the trades existing in the Salesforce database. The default sorting order is based on Date Booked. The second "New Trade" view creates new Trade records. It uses Fixer.io to pull relevant exchange rates for a specific Sell Amount - Sell Currency - Buy Currency combination. That's why the application requires Fixer.io account.
+> The application includes two main views. The first one lists the trades from the Salesforce database. The default sorting order is based on Date Booked (desc). The second "New Trade" view creates new Trade records. It uses Fixer.io to pull relevant exchange rates for a specific Sell Amount - Sell Currency - Buy Currency combination. That's why the application requires Fixer.io account.
 
 ![picture](screenshots/main_view.png)
 
