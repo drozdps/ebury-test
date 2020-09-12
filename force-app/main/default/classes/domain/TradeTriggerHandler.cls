@@ -13,8 +13,12 @@ public with sharing class TradeTriggerHandler extends TriggerHandler {
     }
 
     public override void beforeInsert() {
-        for (Trade__c trade: newRecords) {
-            System.debug(LoggingLevel.ERROR, '>' + trade);
-        }
+        TradeService service = new TradeService(newRecords);
+        service.populateIDs();
+    }
+
+    public override void afterInsert() {
+        TradeService service = new TradeService(newRecords);
+        service.createChatterPosts();
     }
 }

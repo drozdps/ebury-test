@@ -56,8 +56,8 @@ export default class NewTrade extends LightningElement {
         this.showNotification('Success', 'Your record was created', 'success');
     }
 
-    handleError() {
-        this.showNotification('Error!', 'Something went wrong. Contact your system administrator.', 'error');
+    handleError(event) {
+        this.showNotification('Error!', 'Something went wrong. Contact your system administrator. \n' + event.detail.detail, 'error');
     }
 
     showNotification(title, message, variant) {
