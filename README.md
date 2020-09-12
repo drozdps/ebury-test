@@ -26,6 +26,7 @@
 
 **REQ3**
 
+- It was decided to send Chatter posts from Apex trigger, and not from Apex Controller or Process Builder to make the logic more generic and flexible. Also, there is a possibility that some Trade__c records in future will be imported via some API, that's why Apex Controller is not an appropriate place for such logic.
 - Queue selector layer is used to fetch Users which are included into "Trade reviewers" queue.
 - The solution uses Apex ConnectAPI to create the Chatter post and share it with Users from "Trade reviewers" queue.
 - The solution is bulkified.
