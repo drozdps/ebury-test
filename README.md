@@ -52,6 +52,7 @@ SFDX deployment guide
 2. Create new scratch org: `sfdx force:org:create -f project-scratch-def.json`
 3. Push the source code: `sfdx force:source:deploy -p force-app`
 4. Create "Trade reviewers" queue on the org.
+5. Create new Fixer.io record in "External Services" custom metadata type. It should include your API access token.
 
 **Error handling**
 
